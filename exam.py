@@ -5,7 +5,6 @@ import seaborn as sns
 import numpy as np
 
 df = pd.read_csv("23.csv")
-st.write("Hello")
 
 df['Age']=df['Age'].fillna(df['Age'].median())
 df['Gender']=df['Gender'].fillna(df['Gender'].mode()[0])
@@ -54,7 +53,7 @@ for option in options:
 #     ("Email", "Home phone", "Mobile phone")
 # )
 
-
+st.write("# Ayol erkaklarni soni bo'yicha countplot:")
 gender_counts = df['Gender'].value_counts()
 plt.figure(figsize=(8, 8))
 plt.pie(gender_counts, labels=gender_counts.index, autopct='%1.1f%%', startangle=140)
