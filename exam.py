@@ -31,13 +31,18 @@ GameGenre_mode_for_Asia = df[df['Location'] == 'Asia']['GameGenre'].mode()[0]
 df.loc[df['Location'] == 'Asia', 'GameGenre'] = df.loc[df['Location'] == 'Asia', 'GameGenre'].fillna(GameGenre_mode_for_Asia)
 
 df = df.drop(columns=['Unnamed: 0'])
-add_radio = st.sidebar.radio(
-    "Tanlang:",
-    ("DataFrame haqida", "Missing data", "Graphlar", "Xulosa")
+# add_radio = st.sidebar.radio(
+#     "Tanlang:",
+#     ("DataFrame haqida", "Missing data", "Graphlar", "Xulosa")
+# )
+add_selectbox = st.sidebar.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone")
 )
-if add_radio == "DataFrame kirish":
-    st.title("DataFrame Sahifasi")
-    if st.button("'DataFrame'ni ko'rish"):
-        st.write("## DataFrame")
-        st.dataframe(df)
-        st.button("Yopish", type="primary")
+
+# if add_radio == "DataFrame kirish":
+#     st.title("DataFrame Sahifasi")
+#     if st.button("'DataFrame'ni ko'rish"):
+#         st.write("## DataFrame")
+#         st.dataframe(df)
+#         st.button("Yopish", type="primary")
