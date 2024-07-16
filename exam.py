@@ -6,4 +6,29 @@ import numpy as np
 
 df = pd.read_csv("23.csv")
 st.write("Hello")
-df.head(3)
+
+df['Age']=df['Age'].fillna(df['Age'].median())
+df['Gender']=df['Gender'].fillna(df['Gender'].mode()[0])
+df['Location']=df['Location'].fillna(df['Location'].mode()[0])
+df['PlayTimeHours']=df['PlayTimeHours'].fillna(df['PlayTimeHours'].median())
+df['InGamePurchases']=df['InGamePurchases'].fillna(df['InGamePurchases'].median())
+df['GameDifficulty']=df['GameDifficulty'].fillna(df['GameDifficulty'].mode()[0])
+df['SessionsPerWeek']=df['SessionsPerWeek'].fillna(df['SessionsPerWeek'].median())
+df['AvgSessionDurationMinutes']=df['AvgSessionDurationMinutes'].fillna(df['AvgSessionDurationMinutes'].median())
+df['PlayerLevel']=df['PlayerLevel'].fillna(df['PlayerLevel'].median())
+df['AchievementsUnlocked']=df['AchievementsUnlocked'].fillna(df['AchievementsUnlocked'].median())
+df['EngagementLevel']=df['EngagementLevel'].fillna(df['EngagementLevel'].mode()[0])
+
+
+
+GameGenre_mode_for_USA = df[df['Location'] == 'USA']['GameGenre'].mode()[0]
+df.loc[df['Location'] == 'USA', 'GameGenre'] = df.loc[df['Location'] == 'USA', 'GameGenre'].fillna(GameGenre_mode_for_USA)
+GameGenre_mode_for_Europe = df[df['Location'] == 'Europe']['GameGenre'].mode()[0]
+df.loc[df['Location'] == 'Europe', 'GameGenre'] = df.loc[df['Location'] == 'Europe', 'GameGenre'].fillna(GameGenre_mode_for_Europe)
+GameGenre_mode_for_Other = df[df['Location'] == 'Other']['GameGenre'].mode()[0]
+df.loc[df['Location'] == 'Other', 'GameGenre'] = df.loc[df['Location'] == 'Other', 'GameGenre'].fillna(GameGenre_mode_for_Other)
+GameGenre_mode_for_Asia = df[df['Location'] == 'Asia']['GameGenre'].mode()[0]
+df.loc[df['Location'] == 'Asia', 'GameGenre'] = df.loc[df['Location'] == 'Asia', 'GameGenre'].fillna(GameGenre_mode_for_Asia)
+
+df = df.drop(columns=['Unnamed: 0'])
+st.dataframe(df)
