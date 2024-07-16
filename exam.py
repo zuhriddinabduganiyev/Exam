@@ -41,4 +41,3 @@ if add_radio == "DataFrame":
         st.write("## DataFrame")
         st.dataframe(df)
         st.button("Yopish", type="primary")
-st.dataframe(df)
