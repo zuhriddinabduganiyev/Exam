@@ -35,10 +35,18 @@ df = df.drop(columns=['Unnamed: 0'])
 #     "Tanlang:",
 #     ("DataFrame haqida", "Missing data", "Graphlar", "Xulosa")
 # )
-add_selectbox = st.sidebar.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone")
+
+add_button= st.sidebar.add_rows(
+    'Tanlang:', ('Birinchi', 'Ikkinchi', 'Uchinchi')
 )
+
+
+# add_selectbox = st.sidebar.selectbox(
+#     "How would you like to be contacted?",
+#     ("Email", "Home phone", "Mobile phone")
+# )
+
+
 
 # if add_radio == "DataFrame kirish":
 #     st.title("DataFrame Sahifasi")
