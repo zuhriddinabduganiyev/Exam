@@ -61,7 +61,7 @@ plt.pie(gender_counts, labels=gender_counts.index, autopct='%1.1f%%', startangle
 plt.title('Gender Distribution')
 plt.axis('equal')
 plt.show()
-st(plt)
+st.pyplot(plt)
 # if add_radio == "DataFrame kirish":
 #     st.title("DataFrame Sahifasi")
 #     if st.button("'DataFrame'ni ko'rish"):
