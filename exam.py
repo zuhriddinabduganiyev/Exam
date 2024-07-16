@@ -35,14 +35,18 @@ df = df.drop(columns=['Unnamed: 0'])
 #     "Tanlang:",
 #     ("DataFrame haqida", "Missing data", "Graphlar", "Xulosa")
 # )
-
-selected_option = st.sidebar.selectbox(
-    'Tanlang:',
-    ('Birinchi', 'Ikkinchi', 'Uchinchi')
-)
-
-# Display the selected option
-st.write(f'Siz {selected_option} ni tanladingiz')
+st.sidebar.title("Loyiha:")
+# Sidebar options
+options = [
+    "Birinchisi",
+    "Ikkinchisi",
+    "Uchinchisi",
+    "To'rtinchisi",
+    "Xulosa",
+]
+# Display options in the sidebar
+for option in options:
+    st.sidebar.button(option)
 
 
 # add_selectbox = st.sidebar.selectbox(
