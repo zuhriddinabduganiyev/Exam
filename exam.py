@@ -33,9 +33,9 @@ df.loc[df['Location'] == 'Asia', 'GameGenre'] = df.loc[df['Location'] == 'Asia',
 df = df.drop(columns=['Unnamed: 0'])
 add_radio = st.sidebar.radio(
     "Tanlang:",
-    ("DataFrame kirish", "Graphlar")
+    ("DataFrame haqida", "Missing data", "Graphlar", "Xulosa")
 )
-if add_radio == "DataFrame":
+if add_radio == "DataFrame kirish":
     st.title("DataFrame Sahifasi")
     if st.button("'DataFrame'ni ko'rish"):
         st.write("## DataFrame")
