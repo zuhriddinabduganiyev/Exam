@@ -30,37 +30,33 @@ GameGenre_mode_for_Asia = df[df['Location'] == 'Asia']['GameGenre'].mode()[0]
 df.loc[df['Location'] == 'Asia', 'GameGenre'] = df.loc[df['Location'] == 'Asia', 'GameGenre'].fillna(GameGenre_mode_for_Asia)
 
 df = df.drop(columns=['Unnamed: 0'])
-# add_radio = st.sidebar.radio(
-#     "Tanlang:",
-#     ("DataFrame haqida", "Missing data", "Graphlar", "Xulosa")
-# )
+
+
+
+
+
 st.sidebar.title("Loyiha:")
-# Sidebar options
-options = [
-    "Birinchisi",
-    "Ikkinchisi",
-    "Uchinchisi",
-    "To'rtinchisi",
-    "Xulosa",
-]
-# Display options in the sidebar
-for option in options:
-    st.sidebar.button(option)
+add_radio = st.sidebar.radio(
+    "Tanlang:",
+    ("DataFrame haqida", "Missing Values", "Analysis", "To'rtinchisi", "Xulosa")
+)
 
 
+if add_radio == "DataFrame haqida":
+    st.write("## DataFrame haqida:")
+    if st.button("'DataFrame'ni ko'rish"):
+        st.write("## DataFrame")
+        st.dataframe(df)
+        st.button("Yopish", type="primary")
+    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Starcraft_Gamescom_2017_%2836851382835%29.jpg/440px-Starcraft_Gamescom_2017_%2836851382835%29.jpg")
+    
+    
 # add_selectbox = st.sidebar.selectbox(
 #     "How would you like to be contacted?",
 #     ("Email", "Home phone", "Mobile phone")
 # )
 
-st.write("# Ayol erkaklarni soni bo'yicha countplot:")
-gender_counts = df['Gender'].value_counts()
-plt.figure(figsize=(8, 8))
-plt.pie(gender_counts, labels=gender_counts.index, autopct='%1.1f%%', startangle=140)
-plt.title('Gender Distribution')
-plt.axis('equal')
-plt.show()
-st.pyplot(plt)
+
 # if add_radio == "DataFrame kirish":
 #     st.title("DataFrame Sahifasi")
 #     if st.button("'DataFrame'ni ko'rish"):
